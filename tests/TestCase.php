@@ -2,9 +2,9 @@
 
 namespace Ht3aa\PaymentsGateway\Tests;
 
+use Ht3aa\PaymentsGateway\PaymentsGatewayServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Ht3aa\PaymentsGateway\PaymentsGatewayServiceProvider;
 
 class TestCase extends Orchestra
 {

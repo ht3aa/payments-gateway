@@ -2,9 +2,9 @@
 
 namespace Ht3aa\PaymentsGateway;
 
+use Ht3aa\PaymentsGateway\Commands\PaymentsGatewayCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Ht3aa\PaymentsGateway\Commands\PaymentsGatewayCommand;
 
 class PaymentsGatewayServiceProvider extends PackageServiceProvider
 {
