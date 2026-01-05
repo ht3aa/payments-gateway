@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Ht3aa\PaymentsGateway\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class PaymentsGatewayCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'payments-gateway';
 
     public $description = 'My command';
 

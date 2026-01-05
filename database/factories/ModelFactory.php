@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton\Database\Factories;
+namespace Ht3aa\PaymentsGateway\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
