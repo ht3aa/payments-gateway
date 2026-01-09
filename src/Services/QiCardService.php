@@ -26,13 +26,14 @@ class QiCardService
 
     public function __construct()
     {
-        $this->baseUrl = config('services.qi_card.api_url');
-        $this->terminalId = config('services.qi_card.terminal_id');
-        $this->username = config('services.qi_card.username');
-        $this->password = config('services.qi_card.password');
+        $this->baseUrl = config('payments-gateway.qi_card.api_url');
+        $this->terminalId = config('payments-gateway.qi_card.terminal_id');
+        $this->username = config('payments-gateway.qi_card.username');
+        $this->password = config('payments-gateway.qi_card.password');
 
         $this->client = Http::baseUrl($this->baseUrl)
-            ->withBasicAuth($this->username, $this->password)->withHeaders([
+            ->withBasicAuth($this->username, $this->password)
+            ->withHeaders([
                 'X-Terminal-Id' => $this->terminalId,
             ]);
     }

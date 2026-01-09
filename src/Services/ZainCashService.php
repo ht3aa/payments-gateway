@@ -28,11 +28,13 @@ class ZainCashService
 
     public function __construct()
     {
-        $this->base_url = config('services.zaincash.is_production') ? 'https://api.zaincash.iq' : 'https://test.zaincash.iq';
+        $this->base_url = config('payments-gateway.zaincash.is_production')
+            ? 'https://api.zaincash.iq'
+            : 'https://test.zaincash.iq';
         $this->payment_redirect_url = $this->base_url . '/transaction/pay?id=';
-        $this->merchant_secret = config('services.zaincash.merchant_secret');
-        $this->merchant_id = config('services.zaincash.merchant_id');
-        $this->msisdn = config('services.zaincash.msisdn');
+        $this->merchant_secret = config('payments-gateway.zaincash.merchant_secret');
+        $this->merchant_id = config('payments-gateway.zaincash.merchant_id');
+        $this->msisdn = config('payments-gateway.zaincash.msisdn');
 
         $this->client = Http::baseUrl($this->base_url);
     }

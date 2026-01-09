@@ -25,10 +25,10 @@ class SwitchService
 
     public function __construct()
     {
-        $this->baseUrl = config('services.switch.base_url');
-        $this->resourcePathBaseUrl = config('services.switch.resource_path_base_url');
-        $this->token = config('services.switch.token');
-        $this->entityId = config('services.switch.entity_id');
+        $this->baseUrl = config('payments-gateway.switch.base_url');
+        $this->resourcePathBaseUrl = config('payments-gateway.switch.resource_path_base_url');
+        $this->token = config('payments-gateway.switch.token');
+        $this->entityId = config('payments-gateway.switch.entity_id');
 
         $this->client = Http::withToken($this->token)->asForm();
     }

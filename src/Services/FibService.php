@@ -26,9 +26,11 @@ class FibService
 
     public function __construct()
     {
-        $this->baseUrl = config('services.fib.is_production') ? config('services.fib.production_base_url') : config('services.fib.test_base_url');
-        $this->clientId = config('services.fib.client_id');
-        $this->clientSecret = config('services.fib.client_secret');
+        $this->baseUrl = config('payments-gateway.fib.is_production')
+            ? config('payments-gateway.fib.production_base_url')
+            : config('payments-gateway.fib.test_base_url');
+        $this->clientId = config('payments-gateway.fib.client_id');
+        $this->clientSecret = config('payments-gateway.fib.client_secret');
 
         $this->client = Http::baseUrl($this->baseUrl);
     }
