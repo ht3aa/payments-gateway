@@ -2,9 +2,9 @@
 
 namespace Ht3aa\PaymentsGateway\Commands;
 
+use Ht3aa\PaymentsGateway\Enums\QiCardPaymentStatus;
 use Ht3aa\PaymentsGateway\Models\QiCardPayment;
 use Ht3aa\PaymentsGateway\Services\QiCardService;
-use Ht3aa\PaymentsGateway\Enums\QiCardPaymentStatus;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
@@ -38,15 +38,16 @@ class CheckQiCardPaymentStatus extends Command
             ->orderBy('created_at', 'asc')
             ->first();
 
-        if (!$payment) {
+        if (! $payment) {
             $this->info('No pending Qi Card payments found.');
+
             return self::SUCCESS;
         }
 
         $this->info("Checking payment ID: {$payment->payment_id}");
 
         try {
-            $qiCardService = new QiCardService();
+            $qiCardService = new QiCardService;
             $updatedPayment = $qiCardService->getPayment($payment);
 
             $this->info("Payment status updated: {$updatedPayment->status}");

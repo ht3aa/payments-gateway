@@ -3,8 +3,8 @@
 namespace Ht3aa\PaymentsGateway\Services;
 
 use Firebase\JWT\JWT;
-use Ht3aa\PaymentsGateway\Models\ZainCashTransaction;
 use Firebase\JWT\Key;
+use Ht3aa\PaymentsGateway\Models\ZainCashTransaction;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -23,7 +23,6 @@ class ZainCashService
 
     private string $payment_redirect_url;
 
-
     private PendingRequest $client;
 
     public function __construct()
@@ -31,7 +30,7 @@ class ZainCashService
         $this->base_url = config('payments-gateway.zaincash.is_production')
             ? 'https://api.zaincash.iq'
             : 'https://test.zaincash.iq';
-        $this->payment_redirect_url = $this->base_url . '/transaction/pay?id=';
+        $this->payment_redirect_url = $this->base_url.'/transaction/pay?id=';
         $this->merchant_secret = config('payments-gateway.zaincash.merchant_secret');
         $this->merchant_id = config('payments-gateway.zaincash.merchant_id');
         $this->msisdn = config('payments-gateway.zaincash.msisdn');
@@ -63,7 +62,7 @@ class ZainCashService
             ],
         ];
         $context = stream_context_create($options);
-        $response = json_decode(file_get_contents($this->base_url . '/transaction/init', false, $context), true);
+        $response = json_decode(file_get_contents($this->base_url.'/transaction/init', false, $context), true);
 
         if ($this->responseFailed($response)) {
             Log::error('Failed to initiate transaction', $response);
@@ -75,7 +74,7 @@ class ZainCashService
             'exp' => $data['exp'],
             'token' => $data['token'],
             'redirect_url' => $data['redirectUrl'],
-            'payment_redirect_url' => $this->payment_redirect_url . $response['id'],
+            'payment_redirect_url' => $this->payment_redirect_url.$response['id'],
             'zain_cash_response' => $response,
             'status' => $response['status'],
             'transaction_id' => $response['id'],
@@ -106,7 +105,7 @@ class ZainCashService
         ];
 
         $context = stream_context_create($options);
-        $response = json_decode(file_get_contents($this->base_url . '/transaction/get', false, $context), true);
+        $response = json_decode(file_get_contents($this->base_url.'/transaction/get', false, $context), true);
 
         if ($this->responseFailed($response)) {
             Log::error('Failed to initiate transaction', $response);

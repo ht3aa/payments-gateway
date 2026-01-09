@@ -2,11 +2,11 @@
 
 namespace Ht3aa\PaymentsGateway\Controllers;
 
+use Ht3aa\PaymentsGateway\Models\FibPayment;
 use Ht3aa\PaymentsGateway\Repositores\FibPaymentRepository;
 use Ht3aa\PaymentsGateway\Requests\StoreFibPaymentRequest;
 use Ht3aa\PaymentsGateway\Requests\UpdateFibPaymentRequest;
 use Ht3aa\PaymentsGateway\Resources\FibPaymentResource;
-use Ht3aa\PaymentsGateway\Models\FibPayment;
 use Illuminate\Routing\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 

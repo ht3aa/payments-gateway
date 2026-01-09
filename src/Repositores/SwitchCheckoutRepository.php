@@ -2,9 +2,9 @@
 
 namespace Ht3aa\PaymentsGateway\Repositores;
 
+use Ht3aa\PaymentsGateway\Enums\SwitchCheckoutStatus;
 use Ht3aa\PaymentsGateway\Models\SwitchCheckout;
 use Ht3aa\PaymentsGateway\Services\SwitchService;
-use Ht3aa\PaymentsGateway\Enums\SwitchCheckoutStatus;
 
 class SwitchCheckoutRepository
 {

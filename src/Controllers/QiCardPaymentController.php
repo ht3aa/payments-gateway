@@ -2,14 +2,13 @@
 
 namespace Ht3aa\PaymentsGateway\Controllers;
 
+use Ht3aa\PaymentsGateway\Models\QiCardPayment;
 use Ht3aa\PaymentsGateway\Repositores\QiCardPaymentRepository;
 use Ht3aa\PaymentsGateway\Requests\StoreQiCardPaymentRequest;
-use Ht3aa\PaymentsGateway\Requests\UpdateQiCardPaymentRequest;
 use Ht3aa\PaymentsGateway\Resources\QiCardPaymentResource;
-use Ht3aa\PaymentsGateway\Models\QiCardPayment;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Illuminate\Http\Request;
 
 class QiCardPaymentController extends Controller
 {

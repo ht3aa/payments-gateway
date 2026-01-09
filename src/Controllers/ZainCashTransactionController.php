@@ -2,14 +2,12 @@
 
 namespace Ht3aa\PaymentsGateway\Controllers;
 
+use Ht3aa\PaymentsGateway\Models\ZainCashTransaction;
 use Ht3aa\PaymentsGateway\Repositores\ZainCashTransactionRepository;
 use Ht3aa\PaymentsGateway\Requests\StoreZainCashTransactionRequest;
 use Ht3aa\PaymentsGateway\Requests\UpdateZainCashTransactionRequest;
 use Ht3aa\PaymentsGateway\Resources\ZainCashTransactionResource;
-use Ht3aa\PaymentsGateway\Models\ZainCashTransaction;
 use Illuminate\Routing\Controller;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Illuminate\Http\Request;
 
 class ZainCashTransactionController extends Controller
 {

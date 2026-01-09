@@ -2,9 +2,9 @@
 
 namespace Ht3aa\PaymentsGateway\Commands;
 
+use Ht3aa\PaymentsGateway\Enums\FibPaymentStatus;
 use Ht3aa\PaymentsGateway\Models\FibPayment;
 use Ht3aa\PaymentsGateway\Services\FibService;
-use Ht3aa\PaymentsGateway\Enums\FibPaymentStatus;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
@@ -41,15 +41,16 @@ class CheckFibPaymentStatus extends Command
             ->orderBy('created_at', 'asc')
             ->first();
 
-        if (!$payment) {
+        if (! $payment) {
             $this->info('No pending or refund requested payments found.');
+
             return self::SUCCESS;
         }
 
         $this->info("Checking payment ID: {$payment->payment_id}");
 
         try {
-            $fibService = new FibService();
+            $fibService = new FibService;
             $updatedPayment = $fibService->getPayment($payment);
 
             $this->info("Payment status updated: {$updatedPayment->status->value}");

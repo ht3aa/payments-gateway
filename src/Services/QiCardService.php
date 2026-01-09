@@ -6,8 +6,8 @@ use Ht3aa\PaymentsGateway\Models\QiCardPayment;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
-use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 use Illuminate\Support\Str;
+use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 
 // Qi Card Payment Gateway Service
 class QiCardService
@@ -50,7 +50,7 @@ class QiCardService
 
         $response = $this->client->withToken($this->token)
             ->asJson()
-            ->post("/payment", $data);
+            ->post('/payment', $data);
 
         if ($response->failed()) {
             Log::error('QiCard: Failed to create payment', $response->json());
@@ -77,7 +77,6 @@ class QiCardService
             ->asJson()
             ->get("/payment/{$qiCardPayment->payment_id}/status");
 
-
         if ($response->failed()) {
             Log::error('QiCard: Failed to get payment status', [
                 'response' => $response->json(),
@@ -93,8 +92,6 @@ class QiCardService
             'canceled' => $result['canceled'],
             'update_response_data' => $result,
         ]);
-
-
 
         return $qiCardPayment->fresh();
     }

@@ -2,9 +2,9 @@
 
 namespace Ht3aa\PaymentsGateway\Repositores;
 
+use Ht3aa\PaymentsGateway\Enums\FibPaymentStatus;
 use Ht3aa\PaymentsGateway\Models\FibPayment;
 use Ht3aa\PaymentsGateway\Services\FibService;
-use Ht3aa\PaymentsGateway\Enums\FibPaymentStatus;
 
 class FibPaymentRepository
 {
@@ -25,7 +25,6 @@ class FibPaymentRepository
             'currency' => strtoupper($order->currency->code),
             'status' => FibPaymentStatus::PENDING->value,
         ]);
-
 
         return $this->fibService->createPayment($fibPayment->fresh());
     }

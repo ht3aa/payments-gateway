@@ -7,7 +7,6 @@ use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
-use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 
 // Fib Payment Gateway Service
 class FibService
@@ -37,7 +36,7 @@ class FibService
 
     public function login(): void
     {
-        $response = $this->client->asForm()->post("/auth/realms/fib-online-shop/protocol/openid-connect/token", [
+        $response = $this->client->asForm()->post('/auth/realms/fib-online-shop/protocol/openid-connect/token', [
             'grant_type' => 'client_credentials',
             'client_id' => $this->clientId,
             'client_secret' => $this->clientSecret,
@@ -58,19 +57,18 @@ class FibService
     {
         $this->login();
 
-
         $data = [
-            "monetaryValue" => [
+            'monetaryValue' => [
                 'amount' => $fibPayment->amount,
                 'currency' => $fibPayment->currency,
             ],
-            "statusCallbackUrl" => route('fib-payment.update', $fibPayment->id),
-            "category" => "ECOMMERCE",
+            'statusCallbackUrl' => route('fib-payment.update', $fibPayment->id),
+            'category' => 'ECOMMERCE',
         ];
 
         $response = $this->client->withToken($this->token)
             ->asJson()
-            ->post("/protected/v1/payments", $data);
+            ->post('/protected/v1/payments', $data);
 
         if ($response->failed()) {
             Log::error('Fib: Failed to create payment', $response->json());
@@ -78,7 +76,6 @@ class FibService
         }
 
         $result = $response->json();
-
 
         $fibPayment->update([
             'status_callback_url' => route('fib-payment.update', $fibPayment->id),

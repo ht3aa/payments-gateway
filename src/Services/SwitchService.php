@@ -2,8 +2,8 @@
 
 namespace Ht3aa\PaymentsGateway\Services;
 
-use Ht3aa\PaymentsGateway\Models\SwitchCheckout;
 use Ht3aa\PaymentsGateway\Enums\SwitchCheckoutStatus;
+use Ht3aa\PaymentsGateway\Models\SwitchCheckout;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;

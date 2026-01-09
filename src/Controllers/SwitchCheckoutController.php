@@ -2,11 +2,11 @@
 
 namespace Ht3aa\PaymentsGateway\Controllers;
 
+use Ht3aa\PaymentsGateway\Models\SwitchCheckout;
 use Ht3aa\PaymentsGateway\Repositores\SwitchCheckoutRepository;
 use Ht3aa\PaymentsGateway\Requests\StoreSwitchCheckoutRequest;
 use Ht3aa\PaymentsGateway\Requests\UpdateSwitchCheckoutRequest;
 use Ht3aa\PaymentsGateway\Resources\SwitchCheckoutResource;
-use Ht3aa\PaymentsGateway\Models\SwitchCheckout;
 use Illuminate\Routing\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 

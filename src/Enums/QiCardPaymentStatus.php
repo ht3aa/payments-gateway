@@ -42,7 +42,6 @@ enum QiCardPaymentStatus: string implements HasColor, HasLabel
      */
     case REFUNDED = 'REFUNDED';
 
-
     case FORM_SHOWED = 'FORM_SHOWED';
 
     public function getLabel(): ?string
@@ -57,7 +56,7 @@ enum QiCardPaymentStatus: string implements HasColor, HasLabel
         };
     }
 
-    public function getColor(): string | array | null
+    public function getColor(): string|array|null
     {
         return match ($this) {
             self::CREATED => 'warning',

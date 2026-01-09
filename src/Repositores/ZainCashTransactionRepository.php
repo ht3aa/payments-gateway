@@ -2,9 +2,9 @@
 
 namespace Ht3aa\PaymentsGateway\Repositores;
 
+use Ht3aa\PaymentsGateway\Enums\ZainCashStatus;
 use Ht3aa\PaymentsGateway\Models\ZainCashTransaction;
 use Ht3aa\PaymentsGateway\Services\ZainCashService;
-use Ht3aa\PaymentsGateway\Enums\ZainCashStatus;
 
 class ZainCashTransactionRepository
 {

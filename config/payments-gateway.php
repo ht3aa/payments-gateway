@@ -20,8 +20,8 @@ return [
     |--------------------------------------------------------------------------
     */
     'fib' => [
-        'test_base_url' => "https://fib.stage.fib.iq",
-        'production_base_url' => "https://fib.prod.fib.iq",
+        'test_base_url' => 'https://fib.stage.fib.iq',
+        'production_base_url' => 'https://fib.prod.fib.iq',
         'is_production' => env('FIB_IS_PRODUCTION', false),
         'client_id' => env('FIB_CLIENT_ID'),
         'client_secret' => env('FIB_CLIENT_SECRET'),
@@ -46,8 +46,8 @@ return [
     */
     'qi_card' => [
         'api_url' => env('QI_CARD_API_URL', 'https://uat-sandbox-3ds-api.qi.iq/api/v1'),
-        'terminal_id' => env('QI_CARD_TERMINAL_ID', "237984"),
-        'username' => env('QI_CARD_USERNAME', "paymentgatewaytest"),
-        'password' => env('QI_CARD_PASSWORD', "WHaNFE5C3qlChqNbAzH4"),
+        'terminal_id' => env('QI_CARD_TERMINAL_ID', '237984'),
+        'username' => env('QI_CARD_USERNAME', 'paymentgatewaytest'),
+        'password' => env('QI_CARD_PASSWORD', 'WHaNFE5C3qlChqNbAzH4'),
     ],
 ];

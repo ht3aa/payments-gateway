@@ -2,9 +2,9 @@
 
 namespace Ht3aa\PaymentsGateway\Repositores;
 
+use Ht3aa\PaymentsGateway\Enums\QiCardPaymentStatus;
 use Ht3aa\PaymentsGateway\Models\QiCardPayment;
 use Ht3aa\PaymentsGateway\Services\QiCardService;
-use Ht3aa\PaymentsGateway\Enums\QiCardPaymentStatus;
 use Illuminate\Support\Str;
 
 class QiCardPaymentRepository
